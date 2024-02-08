@@ -63,6 +63,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
 
   onApprove() {
     this.treeselect.overlayVisible = false;
+    this.treeSelectDropdownVisible = !this.treeSelectDropdownVisible;
   }
 
   onSelectNode(e){
@@ -75,12 +76,12 @@ export class TreeSelectCheckboxDemo implements OnInit {
 
   onHide(event) {
     if (event === undefined) {
-      this.treeselect.overlayVisible = true;
-    }
-    this.treeSelectDropdownVisible = false;
+      //this.treeselect.overlayVisible = true;
+    }  
+    this.treeSelectDropdownVisible = !this.treeSelectDropdownVisible;
   }
 
   onShow(event){
-    this.treeSelectDropdownVisible = true;
+    this.treeSelectDropdownVisible = !this.treeSelectDropdownVisible;
   }
 }
