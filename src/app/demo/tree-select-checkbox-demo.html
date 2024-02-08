@@ -1,0 +1,41 @@
+<div class="card flex justify-content-center">
+  <p-treeSelect
+    #treeselect
+    class="w-full md:w-20rem"
+    containerStyleClass="w-full"
+    [(ngModel)]="selectedNodes"
+    [options]="nodes"
+    display="comma"
+    [metaKeySelection]="false"
+    selectionMode="checkbox"
+    placeholder="Select Item"
+    [filter]="true"
+    [showClear]="true"
+    [resetFilterOnHide]="true"
+    (onNodeSelect)="updateCount()"
+    (onNodeUnselect)="updateCount()"
+    (onClear)="onClear()"
+  >
+    <ng-template pTemplate="value" let-node> {{getText()}} </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div
+        class="flex justify-content-center"
+        style="padding-bottom: 8px; gap: 1rem"
+      >
+        <button
+          pButton
+          type="button"
+          label="დადასტურება"
+          (click)="onApprove()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="გაუქმება"
+          (click)="onCancel()"
+        ></button>
+      </div>
+    </ng-template>
+  </p-treeSelect>
+</div>
