@@ -5,17 +5,18 @@
     containerStyleClass="w-full"
     [(ngModel)]="selectedNodes"
     [options]="nodes"
-    display="comma"
     [metaKeySelection]="false"
     selectionMode="checkbox"
     placeholder="Select Item"
     [filter]="true"
     [showClear]="true"
+    [emptyMessage]="'არ მოიძებნა ლოკაცია'"
     [resetFilterOnHide]="true"
-    (onNodeSelect)="updateCount()"
-    (onNodeUnselect)="updateCount()"
+    (onNodeSelect)="onSelectNode($event)"
+    (onNodeUnselect)="onUnSelectNode($event)"
     (onClear)="onClear()"
-  >
+    (onHide)="onHide($event)">
+    
     <ng-template pTemplate="value" let-node> {{getText()}} </ng-template>
 
     <ng-template pTemplate="footer">
@@ -25,7 +26,7 @@
           type="button"
           label="გასუფთავება"
           class="p-button-danger"
-          (click)="onCancel()"
+          (click)="onReset()"
         ></button>
         <button
           pButton

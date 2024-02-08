@@ -13,7 +13,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
   selectedItemCount: number;
 
   @ViewChild('treeselect')
-  treeselect: any;
+  treeselect: TreeSelect;
 
   constructor(private nodeService: NodeService) {
     this.nodeService.getLocations().then((files) => (this.nodes = files));
@@ -39,7 +39,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
   }
 
   getText() {
-    return this.selectedItemCount > 0 ? `${this.selectedItemCount} ლოკაცია არის არჩეული` : 'გთხოვთ აირჩიოთ ლოკაცია';
+    return this.selectedItemCount > 0 ? `${this.selectedItemCount} ლოკაცია არის არჩეული` : 'აირჩიეთ ლოკაცია';
   }
 
   updateCount() {
@@ -50,12 +50,27 @@ export class TreeSelectCheckboxDemo implements OnInit {
     this.updateCount();
   }
 
-  onCancel() {
+  onReset() {
     this.selectedNodes = null;
     this.updateCount();
   }
 
   onApprove() {
     this.treeselect.hide();
+    this.treeselect.overlayVisible = false;
+  }
+
+  onSelectNode(e){
+    this.updateCount();
+  }
+
+  onUnSelectNode(e){
+    this.updateCount();
+  }
+
+  onHide(event) {
+    if (event === undefined) {
+      this.treeselect.overlayVisible = true;
+    }
   }
 }
