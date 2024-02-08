@@ -19,21 +19,21 @@
     <ng-template pTemplate="value" let-node> {{getText()}} </ng-template>
 
     <ng-template pTemplate="footer">
-      <div
-        class="flex justify-content-center"
-        style="padding-bottom: 8px; gap: 1rem"
-      >
+      <div class="flex justify-content-center" style="padding-bottom: 8px; gap: 1rem">
         <button
           pButton
           type="button"
-          label="დადასტურება"
-          (click)="onApprove()"
+          label="გასუფთავება"
+          class="p-button-danger"
+          (click)="onCancel()"
         ></button>
         <button
           pButton
+          pRipple
           type="button"
-          label="გაუქმება"
-          (click)="onCancel()"
+          class="p-button-success"
+          label="დადასტურება"
+          (click)="onApprove()"
         ></button>
       </div>
     </ng-template>

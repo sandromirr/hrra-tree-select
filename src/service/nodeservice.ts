@@ -2,6 +2,78 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class NodeService {
+
+  getTreeNodeLocationData(){
+    return [
+      {
+        key:'1',
+        label: 'თბილისი',
+        data: 'Tbilisi',
+        children: [
+          {
+            key:'1_1',
+            label: 'საბურთალო',
+            data: 'Saburtalo',
+          },
+          {
+            key:'1_2',
+            label: 'დიღომი',
+            data: 'Dighomi',
+          },
+          {
+            key:'1_3',
+            label: 'ძველი თბილისი',
+            data: 'Old Tbilisi',
+          }
+        ]
+      },
+      {
+        key:'2',
+        label: 'ბათუმი',
+        data: 'Batumi',
+        children: [
+          {
+            key:'2_1',
+            label: 'აეროპორტის უბანი',
+            data: 'Saburtalo',
+          },
+          {
+            key:'2_2',
+            label: 'აღმაშენებლის უბანი',
+            data: 'Dighomi',
+          },
+          {
+            key:'2_3',
+            label: 'ბაგრატიონის უბანი',
+            data: 'Old Tbilisi',
+          }
+        ]
+      },
+      {
+        key:'3',
+        label: 'ქუთაისი',
+        data: 'Kutaisi',
+        children: [
+          {
+            key:'3_1',
+            label: 'ავანგარდის დასახლება',
+            data: 'Saburtalo',
+          },
+          {
+            key:'3_2',
+            label: 'ავტოქარხნის დასახლება',
+            data: 'Dighomi',
+          },
+          {
+            key:'3_3',
+            label: 'ასათიანის დასახლება',
+            data: 'Old Tbilisi',
+          }
+        ]
+      }
+    ]
+  }
+
   getTreeNodesData() {
     return [
       {
@@ -833,5 +905,9 @@ export class NodeService {
 
   getFilesystem() {
     return Promise.resolve(this.getFileSystemNodesData());
+  }
+
+  getLocations(){
+    return Promise.resolve(this.getTreeNodeLocationData())
   }
 }

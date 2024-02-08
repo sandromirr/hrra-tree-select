@@ -16,7 +16,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
   treeselect: any;
 
   constructor(private nodeService: NodeService) {
-    this.nodeService.getFiles().then((files) => (this.nodes = files));
+    this.nodeService.getLocations().then((files) => (this.nodes = files));
   }
 
   ngOnInit(): void {
@@ -39,9 +39,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
   }
 
   getText() {
-    return this.selectedItemCount > 0
-      ? `${this.selectedItemCount} item selected`
-      : 'Please select item';
+    return this.selectedItemCount > 0 ? `${this.selectedItemCount} ლოკაცია არის არჩეული` : 'გთხოვთ აირჩიოთ ლოკაცია';
   }
 
   updateCount() {
