@@ -12,8 +12,25 @@ export class NodeService {
         children: [
           {
             key:'1_1',
-            label: 'საბურთალო',
-            data: 'Saburtalo',
+            label: 'ვაკე-საბურთალო',
+            data: 'vake-saburtalo',
+            children: [
+              {
+                key:'1_1_1',
+                label: 'ნუცუბიძის პლატო',
+                data: 'nutsubidze plato',    
+              },
+              {
+                key:'1_1_2',
+                label: 'დ.გამრეკელის ქუჩა',
+                data: 'd.gamrekeli',    
+              },
+              {
+                key:'1_1_3',
+                label: 'ვაჟა-ფშაველას გამზ.',
+                data: 'vazha-pshavela ave.',    
+              }
+            ]
           },
           {
             key:'1_2',

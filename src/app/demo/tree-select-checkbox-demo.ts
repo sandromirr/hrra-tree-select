@@ -53,7 +53,6 @@ export class TreeSelectCheckboxDemo implements OnInit {
   onCancel() {
     this.selectedNodes = null;
     this.updateCount();
-    this.treeselect.hide();
   }
 
   onApprove() {
