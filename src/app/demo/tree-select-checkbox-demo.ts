@@ -11,6 +11,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
 
   selectedNodes: any;
   selectedItemCount: number;
+  treeSelectDropdownVisible: boolean;
 
   @ViewChild('treeselect')
   treeselect: TreeSelect;
@@ -21,6 +22,7 @@ export class TreeSelectCheckboxDemo implements OnInit {
 
   ngOnInit(): void {
     this.selectedItemCount = 0;
+    this.treeSelectDropdownVisible = false;
   }
 
   countLeaves(nodeObject: any): number {
@@ -36,6 +38,10 @@ export class TreeSelectCheckboxDemo implements OnInit {
     });
 
     return cnt;
+  }
+
+  getTreeSelectStatus(){
+   return this.treeSelectDropdownVisible;
   }
 
   getText() {
@@ -56,7 +62,6 @@ export class TreeSelectCheckboxDemo implements OnInit {
   }
 
   onApprove() {
-    this.treeselect.hide();
     this.treeselect.overlayVisible = false;
   }
 
@@ -72,5 +77,10 @@ export class TreeSelectCheckboxDemo implements OnInit {
     if (event === undefined) {
       this.treeselect.overlayVisible = true;
     }
+    this.treeSelectDropdownVisible = false;
+  }
+
+  onShow(event){
+    this.treeSelectDropdownVisible = true;
   }
 }

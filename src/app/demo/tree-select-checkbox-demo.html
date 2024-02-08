@@ -15,8 +15,14 @@
     (onNodeSelect)="onSelectNode($event)"
     (onNodeUnselect)="onUnSelectNode($event)"
     (onClear)="onClear()"
-    (onHide)="onHide($event)">
+    (onHide)="onHide($event)"
+    (onShow)="onShow($event)">
     
+    <ng-template pTemplate="triggericon">
+      <span class="pi pi-angle-up" *ngIf="getTreeSelectStatus()"></span>
+      <span class="pi pi-angle-down" *ngIf="!getTreeSelectStatus()"></span>
+    </ng-template>
+
     <ng-template pTemplate="value" let-node> {{getText()}} </ng-template>
 
     <ng-template pTemplate="footer">
